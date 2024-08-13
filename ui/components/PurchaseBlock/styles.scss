@@ -1,0 +1,149 @@
+.card-container {
+  min-height: 400px;
+  background-color: #141d47;
+  border: 1px solid #3044b1;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 320px;
+  align-items: center;
+
+  & ul {
+    padding-left: 0;
+  }
+
+  & li {
+    list-style: none;
+  }
+  
+  @media screen and (max-width: 1080px) {
+    width: 360px;
+    margin-bottom: 42px;
+  }
+}
+
+.top-half {
+  border-radius: 25px 25px 0 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #1f2e6c;
+  width: 100%;
+  padding: 20px;
+}
+
+.checked {
+  max-height: 8px;
+  max-width: 8px;
+}
+
+.logo-container {
+  width: 60px;
+  display: flex;
+  height: 60px;
+  outline: #3c51d9 solid 2px;
+  border-radius: 200px;
+  margin-top: -100px;
+  z-index: 10;
+  background-color: #0c1838;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: -35px;
+
+  &__logo {
+    max-height: 20px;
+  }
+}
+
+.description-container {
+  border-radius: 20px;
+  min-width: 70px;
+  min-height: 10px;
+  outline: 2px solid #b2d27c;
+  margin: 15px;
+  padding: 5.8px;
+  font-family: "Inter";
+
+  &__title {
+    font-family: "Inter";
+    font-size: 0.6rem;
+    text-align: center;
+    color: #b7d77e;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0px;
+  }
+}
+
+.pricing-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  &__text {
+    font-family: "Inter";
+    color: #caec81;
+    font-size: 2.9rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    margin-top: 0;
+    letter-spacing: -0.18rem;
+
+    &--subtext {
+      font-size: 0.65rem;
+      margin: 8px 7px 0;
+      text-transform: uppercase;
+      color: #aeb6e3;
+      letter-spacing: 0;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.15remrem;
+    font-weight: 200;
+    margin-bottom: 0;
+  }
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .check {
+    margin-right: 6px;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    font-family: "Inter";
+    margin: 20px 0;
+    color: #858cb5;
+  }
+
+  button {
+    background-color: #192965;
+    border-radius: 10px;
+    border-color: grey;
+    border: none;
+    color: #ccd1e9;
+    filter: drop-shadow(2px 1px 4px #4444dd);
+    text-transform: uppercase;
+    padding: 10px;
+    font-family: "Inter";
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+}
+

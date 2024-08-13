@@ -1,0 +1,15 @@
+{
+  "title": "Multi-Platform Sync",
+  "text": "Switch between devices effortlessly. Whether you're on your phone, tablet, or desktop, SwiftChat keeps all your conversations perfectly synchronized in real-time.",
+  "button": [
+    {
+      "title": "Log In",
+      "color": "#fff",
+      "logIn": true
+    },
+    {
+      "title": "Learn more",
+      "color": "#fff"
+    }
+  ]
+}
