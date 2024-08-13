@@ -1,10 +1,12 @@
 'use client'
 
 import { pusherClient } from '@/lib/pusher'
-import { toPusherKey } from '@/lib/utils'
+import { cn, toPusherKey } from '@/lib/utils'
 import { Message } from '@/lib/validations/message'
 import { format } from 'date-fns'
+import Image from 'next/image'
 import { FC, useEffect, useRef, useState } from 'react'
+import { MessageContainer, MessagesContainer, MyMessage, TheirMessage } from './styles'
 
 interface MessagesProps {
   initialMessages: Message[]
@@ -18,6 +20,8 @@ const Messages: FC<MessagesProps> = ({
   initialMessages,
   sessionId,
   chatId,
+  chatPartner,
+  sessionImg,
 }) => {
   const [messages, setMessages] = useState<Message[]>(initialMessages)
 
@@ -47,60 +51,41 @@ const Messages: FC<MessagesProps> = ({
   }
 
   return (
-    <div id='messages' style={{
-      display: 'flex',
-      flexDirection: 'column-reverse',
-      alignItems: 'flex-start',
-      padding: '0.75rem',
-      height: '100%',
-      gap: '1rem',
-      overflowY: 'scroll',
-      scrollbarWidth: 'none'
-    }}>
+    <MessagesContainer id='messages'>
       <div ref={scrollDownRef} />
       {messages.map((message, index) => {
         const isCurrentUser = message.senderId === sessionId
 
+        const hasNextMessageFromSameUser =
+          messages[index - 1]?.senderId === messages[index].senderId
 
         return (
           isCurrentUser ?
-            <div key={`${message.id}-${message.timestamp}`}
-              style={{
-                display: 'flex',
-                background: '#2e186a',
-                borderRadius: '10px',
-                padding: '10px',
-                justifySelf: 'flex-end',
-                alignSelf: 'flex-end',
-                alignItems: 'center'
-              }} >
-              {message.text}{' '}
+            <MyMessage key={`${message.id}-${message.timestamp}`} >{message.text}{' '}
               <span className='ml-2 text-xs text-white-400'>
                 {formatTimestamp(message.timestamp)}
               </span>
-            </div>
+            </MyMessage>
             :
-            <div key={`${message.id}-${message.timestamp}`}
-              style={{
-                display: 'flex',
-                background: '#fe7624',
-                borderRadius: '10px',
-                padding: '10px',
-                justifySelf: 'flex-end',
-                alignSelf: 'flex-start',
-                alignItems: 'center'
-              }}
-            >
+            <TheirMessage key={`${message.id}-${message.timestamp}`} >
               {message.text}{' '}
               <span className='ml-2 text-xs text-white-400'>
                 {formatTimestamp(message.timestamp)}
               </span>
-            </div>
+            </TheirMessage>
         )
       })}
-    </div>
+    </MessagesContainer>
   )
 
+  {/* {hasNextMessageFromSameUser ? (
+  <div className={'w-6 h-6'}>
+  <Image fill src={isCurrentUser ? (sessionImg as string) : chatPartner.image}
+    alt='Profile picture'
+    referrerPolicy='no-referrer'
+    className='rounded-full'
+  />
+  </div>):<></> } */}
 
 }
 
