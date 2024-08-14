@@ -14,7 +14,6 @@ const Page: FC = () => {
   async function loginWithGoogle() {
     setIsLoading(true)
     try {
-      throw new Error('test');
       await signIn('google')
     } catch (error) {
       // display error message to user
