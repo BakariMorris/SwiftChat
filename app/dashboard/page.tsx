@@ -57,7 +57,7 @@ const page = async ({}) => {
                 friend.id
               )}`}
               className='relative sm:flex'>
-              <div className='mb-4 flex-shrink-0 sm:mb-0 sm:mr-4'>
+              <div className='mb-4 flex flex-shrink-0 sm:mb-0 sm:mr-4 items-center'>
                 <div className='relative h-6 w-6'>
                   <Image
                     referrerPolicy='no-referrer'
@@ -69,7 +69,7 @@ const page = async ({}) => {
                 </div>
               </div>
 
-              <div>
+              <div className="pr-6">
                 <h4 className='text-lg font-semibold'>{friend.name}</h4>
                 <p className='mt-1 max-w-md'>
                   <span className='text-zinc-400'>

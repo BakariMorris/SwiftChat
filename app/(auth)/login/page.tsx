@@ -14,7 +14,6 @@ const Page: FC = () => {
   async function loginWithGoogle() {
     setIsLoading(true)
     try {
-      throw new Error('test');
       await signIn('google')
     } catch (error) {
       // display error message to user
@@ -29,7 +28,7 @@ const Page: FC = () => {
       <div className='flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
         <div className='w-full flex flex-col items-center max-w-md space-y-8'>
           <div className='flex flex-col items-center gap-8'>
-            <PngIcon src='SwiftChat.png' alt='Swift Chat logo, two message bubbles stacked on top of each other' />
+            <PngIcon src='logo.png' alt='Swift Chat logo, two message bubbles stacked on top of each other' className="h-24"/>
             <SignIn>
               Sign in
             </SignIn>
