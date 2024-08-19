@@ -5,6 +5,7 @@ import { toPusherKey } from '@/lib/utils'
 import { User } from 'lucide-react'
 import Link from 'next/link'
 import { FC, useEffect, useState } from 'react'
+import { NotificationContainer } from './styles'
 
 interface FriendRequestSidebarOptionsProps {
   sessionId: string
@@ -57,9 +58,9 @@ const FriendRequestSidebarOptions: FC<FriendRequestSidebarOptionsProps> = ({
       <p className='truncate'>Friend requests</p>
 
       {unseenRequestCount > 0 ? (
-        <div className='rounded-full w-5 h-5 text-xs flex justify-center items-center text-white bg-indigo-600'>
+        <NotificationContainer>
           {unseenRequestCount}
-        </div>
+        </NotificationContainer>
       ) : null}
     </Link>
   )

@@ -5,7 +5,9 @@ import { chatHrefConstructor, toPusherKey } from '@/lib/utils'
 import { usePathname, useRouter } from 'next/navigation'
 import { FC, useEffect, useState } from 'react'
 import { toast } from 'react-hot-toast'
-import UnseenChatToast from './UnseenChatToast'
+import UnseenChatToast from './UnseenChatToast';
+import { NotificationContainer } from './styles'
+
 
 interface SidebarChatListProps {
   friends: User[]
@@ -91,9 +93,9 @@ const SidebarChatList: FC<SidebarChatListProps> = ({ friends, sessionId }) => {
               className=' hover:text-indigo-600 hover:bg-gray-50 group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
               {friend.name}
               {unseenMessagesCount > 0 ? (
-                <div className='bg-indigo-600 font-medium text-xs text-white w-4 h-4 rounded-full flex justify-center items-center'>
+                <NotificationContainer>
                   {unseenMessagesCount}
-                </div>
+                </NotificationContainer>
               ) : null}
             </a>
           </li>
